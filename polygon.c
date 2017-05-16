@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define VER_MAX 16
+
 typedef struct{
 	int x;
 	int y;
@@ -11,13 +13,21 @@ typedef struct{
 }Vector;
 
 typedef struct{
-	Coord vertex[16];
+	Coord vertex[VER_MAX];
 	int vertex_number;
-	int side[16];
-	double angle[16]; 
+	Vector side[VER_MAX];
+	double angle[VER_MAX]; 
 }Polygon;
 
-void Read(Polygon *p){
-	
-	
+void Read_vertex(FILE *file, Polygon *p){
+	int number=0,i=0;
+	Coord c;
+
+	fscanf(file,"%d", &number);
+	p->vertex_number = number;
+
+	for(i=0;i<number;i++){
+		fscanf(file,"%d%d", &c.x, &c.y);
+		p->vertex[i] = c;
+	}
 }

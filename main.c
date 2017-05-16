@@ -17,4 +17,8 @@ typedef struct{
 	double angle[16]; 
 }Polygon;
 
+int main(void){
 
+
+	return 0;
+}
