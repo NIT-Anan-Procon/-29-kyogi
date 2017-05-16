@@ -7,7 +7,7 @@ typedef struct{
 	int y;
 }Coord;
 
-typedef struct{
+typedef struct{ //ベクトルのx、y成分を格納する構造体
 	int x;
 	int y;
 }Vector;
