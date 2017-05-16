@@ -12,11 +12,11 @@ typedef struct{ //ベクトルのx、y成分を格納する構造体
 	int y;
 }Vector;
 
-typedef struct{
+typedef struct{ //多角形の情報を格納する構造体
 	Coord vertex[VER_MAX];
 	int vertex_number;
 	Vector side[VER_MAX];
-	double angle[VER_MAX]; 
+	double angle[VER_MAX];
 }Polygon;
 
 void Read_vertex(FILE *file, Polygon *p){
