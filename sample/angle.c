@@ -17,6 +17,6 @@ double find_angle(Vector a, Vector b){
 
 int main(void){
 	Vector a = {1,0}, b = {1,1};
-
+	
 	printf("%f\n", find_angle(a,b));
 }
