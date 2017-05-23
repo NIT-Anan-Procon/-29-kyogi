@@ -36,7 +36,7 @@ void printPolygon (Polygon *p) {
 	int i;
 	for (i = 0; i < p->vertex_number; i++) {
 		printf("vertex(x, y) = (%d, %d)", p->vertex[i].x, p->vertex[i].y);
-		printf("side(x, y) = (%d, %d)" p->side[i].x, p->side[i].y);
+		printf("side(x, y) = (%d, %d)", p->side[i].x, p->side[i].y);
 		printf("angle = %f", p->angle);
 	}
 }
