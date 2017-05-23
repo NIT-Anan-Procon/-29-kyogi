@@ -1,16 +1,8 @@
 #include <stdio.h>
+#include "head/coord.h"
+#include "head/vector.h"
 
 #define VER_MAX 16
-
-typedef struct{
-	int x;
-	int y;
-}Coord;
-
-typedef struct{ //ベクトルのx、y成分を格納する構造体
-	int x;
-	int y;
-}Vector;
 
 typedef struct{ //多角形の情報を格納する構造体
 	Coord vertex[VER_MAX];
