@@ -12,4 +12,6 @@ typedef struct{
 	double angle[VER_MAX];
 }Polygon;
 
-void Read_vertex(FILE *file, Polygon *p);
+void Read_vertex(FILE *file, Polygon *p); //ファイルから図形の頂点座標を読みこむ
+
+void printPolygon (Polygon *p); //Polygon構造体の情報を出力する
