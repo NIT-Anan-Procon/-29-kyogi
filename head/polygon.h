@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 #include "vector.h"
-#include "coord.h"
 
 #define VER_MAX 16
 
