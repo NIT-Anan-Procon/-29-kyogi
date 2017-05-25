@@ -32,7 +32,7 @@ int solve(void){
 	readAllVertex(file, piece, piece_number);
 	fclose(file);
 	for(i=0;i<piece_number;i++){
-		calc_polygon(&piece[i]);
+		calcPolygon(&piece[i]);
 	}
 	printAllPolygon(piece, piece_number);
 	return 0;
