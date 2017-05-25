@@ -10,7 +10,7 @@ typedef struct{ //多角形の情報を格納する構造体
 	double angle[VER_MAX];
 }Polygon;
 
-void read_vertex(FILE *file, Polygon *p){
+void readVertex(FILE *file, Polygon *p){
 	int number=0,i=0;
 	Coord c;
 
@@ -25,11 +25,11 @@ void read_vertex(FILE *file, Polygon *p){
 void readAllVertex(FILE *file, Polygon *p, int n){
 	int i;
 	for(i=0;i<n;i++){
-		read_vertex(file, &p[i]);
+		readVertex(file, &p[i]);
 	}
 }
 
-void calc_polygon(Polygon *p){
+void calcPolygon(Polygon *p){
 	int i;
 	for(i=0;i < p->vertex_number;i++){
 		p->side[i] = findVector(p->vertex[i], p->vertex[ (i==p->vertex_number-1? 0:(i+1)) ]);
