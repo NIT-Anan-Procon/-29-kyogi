@@ -7,6 +7,6 @@ typedef struct{
   int y;
 }Vector;
 
-Vector find_vector(Coord a, Coord b); //2つの頂点座標から辺ベクトルを求める
+Vector findVector(Coord a, Coord b); //2つの頂点座標から辺ベクトルを求める
 
-double find_angle(Vector a, Vector b); //2つの辺ベクトルの角度を求める
+double findAngle(Vector a, Vector b); //2つの辺ベクトルの角度を求める
