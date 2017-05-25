@@ -5,7 +5,7 @@
 #define NEW_COORD(a,b) ((Coord){a,b})
 
 int solve(void){
-	int i;
+/*	int i;
 	Polygon poly;
 	poly.vertex_number = 3;
 	poly.vertex[0] = NEW_COORD(3,4);
@@ -19,5 +19,21 @@ int solve(void){
 	}
 
 	printPolygon(&poly);
+*/
+
+	Polygon frame;
+	int piece_number, i;
+
+	FILE *file;
+	file = fopen("Data.txt", "r");
+	fscanf(file, "%d", &piece_number);
+	Polygon piece[piece_number];
+
+	readAllVertex(file, piece, piece_number);
+	fclose(file);
+	for(i=0;i<piece_number;i++){
+		calc_polygon(&piece[i]);
+	}
+	printAllPolygon(piece, piece_number);
 	return 0;
 }
