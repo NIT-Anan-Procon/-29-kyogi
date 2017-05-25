@@ -32,10 +32,10 @@ void readAllVertex(FILE *file, Polygon *p, int n){
 void calc_polygon(Polygon *p){
 	int i;
 	for(i=0;i < p->vertex_number;i++){
-		p->side[i] = find_vector(p->vertex[i], p->vertex[ (i==p->vertex_number-1? 0:(i+1)) ]);
+		p->side[i] = findVector(p->vertex[i], p->vertex[ (i==p->vertex_number-1? 0:(i+1)) ]);
 	}
 	for(i=0;i < p->vertex_number;i++){
-		p->angle[i] = find_angle(p->side[i], p->side[ (i==p->vertex_number-1? 0:(i+1)) ]);
+		p->angle[i] = findAngle(p->side[i], p->side[ (i==p->vertex_number-1? 0:(i+1)) ]);
 	}
 	return;
 }
