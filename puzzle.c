@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "head/polygon.h"
+#include "head/timer.h"
 
 #define NEW_VECTOR(a,b) ((Vector){a,b})
 #define NEW_COORD(a,b) ((Coord){a,b})
@@ -20,6 +21,7 @@ int solve(void){
 
 	printPolygon(&poly);
 */
+	clockStart();
 
 	Polygon frame;
 	int piece_number, i;
@@ -35,5 +37,7 @@ int solve(void){
 		calcPolygon(&piece[i]);
 	}
 	printAllPolygon(piece, piece_number);
+
+	clockEnd();
 	return 0;
 }
