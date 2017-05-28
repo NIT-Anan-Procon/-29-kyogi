@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
 
-void clockStart();
+void clockStart(); //タイムの計測をはじめる。
 
-void clockEnd();
+void clockEnd(); //計測を終了し、タイムを出力する。
