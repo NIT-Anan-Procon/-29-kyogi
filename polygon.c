@@ -50,7 +50,7 @@ void printPolygon (Polygon *p) {
 }
 
 void printAllPolygon(Polygon *p, int n){
-	int i=0;
+	int i;
 	for(i=0;i<n;i++){
 		printf("piece%02d\n",i);
 		printPolygon(&p[i]);
