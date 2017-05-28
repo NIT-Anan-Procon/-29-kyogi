@@ -1,0 +1,3 @@
+ここにリンクする時のコマンドを示す。
+（オブジェクトファイルが増えた時には随時更新）
+gcc -o test main.o puzzle.o polygon.o vector.o coord.o
