@@ -1,3 +1,12 @@
+ここにコンパイル時のコマンドを示す。
+gcc -c *.c
+
+ここにコンパイルを最適化オプション付きで行う場合のコマンドを示す。
+gcc -c -O2 *.c
+
+ソースコードに新たに書き加えた場合には、上記の二つのコマンドを両方試し、同じ動作をするか確認しよう。
+
+
 ここにリンクする時のコマンドを示す。
 （オブジェクトファイルが増えた時には随時更新）
-gcc -o test main.o puzzle.o polygon.o vector.o coord.o
+gcc -o test main.o puzzle.o polygon.o vector.o coord.o timer.o
