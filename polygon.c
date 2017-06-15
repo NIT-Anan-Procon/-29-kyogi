@@ -61,13 +61,13 @@ void printAllPolygon(Polygon *p, int n){
 void reversePolygon(Polygon *p){
 	int i;
 	for(i = 0; i < p->vertex_number; i++){
-		reverseVertex(p.vertex[i]);
+		reverseVertex(&p->vertex[i]);
 	}
 }
 
 void rotatePolygon(Polygon *p){
 	int i;
 	for(i = 0; i < p->vertex_number; i++){
-		rotateVertex(p.vertex[i]);
+		rotateVertex(&p->vertex[i]);
 	}
 }
