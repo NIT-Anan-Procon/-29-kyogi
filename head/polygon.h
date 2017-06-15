@@ -20,3 +20,7 @@ void calcPolygon(Polygon *p); //引数のPolygonの頂点情報から、残り�
 void printPolygon (Polygon *p); //Polygon構造体の情報を出力する
 
 void printAllPolygon(Polygon *p, int n); //Polygon構造体の配列の各要素を表示する
+
+void reversePolygon(Polygon *p); //Polygonを原点を中心に反転させる
+
+void rotatePolygon(Polygon *p); //Polygonを90度回転させる
