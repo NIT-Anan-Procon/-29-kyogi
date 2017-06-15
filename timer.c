@@ -9,5 +9,5 @@ void clockStart(void){
 
 void clockEnd(void){
 	end = clock();
-	printf("Execution Time:%lu[msec]\n",end-start);
+	printf("計測時間:%lu[msec]\n",end-start);
 }
