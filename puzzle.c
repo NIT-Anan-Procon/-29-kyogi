@@ -38,6 +38,12 @@ int solve(void){
 	}
 	printAllPolygon(piece, piece_number);
 
+	for(i = 0; i < piece_number; i++){
+		reversePolygon(&piece[i]);
+	}
+	printf("\n反転\n");
+	printAllPolygon(piece, piece_number);
+
 	clockEnd();
 	return 0;
 }
