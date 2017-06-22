@@ -17,10 +17,10 @@ public class DrawingPolygon extends Applet{
     public int[][] vertex_x;
     public int[][] vertex_y;
     public int[] vertexNumber;
+    public int[] frameVertex_x;
+    public int[] frameVretex_y;
 
     public String s;
-
-//    public int prev_max_x = 0, prev_min_x = 0, prev_max_y = 0, prev_min_y = 0;
 
     int findNumber(){
         int digit, t;
@@ -39,7 +39,7 @@ public class DrawingPolygon extends Applet{
         return t;
     }
 
-/*  public int findMax(int[] dt){
+    public int findMax(int[] dt){
         int max = dt[0];
 
         for(int i = 1; i < dt.length; i++){
@@ -59,43 +59,15 @@ public class DrawingPolygon extends Applet{
         return min;
     }
 
-    public void changePosition(int[] dt_x, int[] dt_y){
-        int max_x = findMax(dt_x), min_x = findMin(dt_x);
-        int max_y = findMax(dt_y) > prev_max_y ? findMax(dt_y) : prev_max_y;
-        int min_y = findMin(dt_y);
-        int i;
-        boolean reset = false;
-        System.out.println(max_x + " " + min_x);
-        System.out.println(max_y + " " + min_y + "\n");
+    public int[] changePosition(int[] vertex){
+        int min = findMin(vertex);
 
-        // Move vertexes
-        for(i = 0; i < dt_x.length; i++){
-            dt_x[i] += (prev_max_x - min_x + 10);
-            if(dt_x[i] > (WINDOW_WIDTH - 10)){
-                reset = true;
-            }
+        for (int i = 0; i < 16; i++){
+            vertex[i] += 10 - min;
         }
 
-        System.out.println(Arrays.toString(dt_x) + "\n");
-
-        // vertex > WINDOW_WIDTH
-        if(reset == true){
-            int moveLength_x = (min_x - 10);
-
-            for(i = 0; i < dt_x.length; i++){
-                dt_x[i] -= moveLength_x;
-            }
-        }
-
-        if(min_y < 10 || reset == true) {
-            for(i = 0; i < dt_y.length; i++){
-                dt_y[i] += (max_y + 10);
-            }
-        }
-
-        prev_max_x = max_x; prev_min_x = min_x;
-        prev_max_y = max_y; prev_min_y = min_y;
-    } */
+        return vertex;
+    }
 
     public void start(){
         try{
@@ -109,7 +81,7 @@ public class DrawingPolygon extends Applet{
 
         vertex_x = new int[pieceNumber][16];
         vertex_y = new int[pieceNumber][16];
-        vertexNumber = new int[pieceNumber];
+        vertexNumber = new int[pieceNumber + 1];
 
         for(int i = 0; i < pieceNumber; i++){
             vertexNumber[i] = findNumber();
@@ -118,26 +90,43 @@ public class DrawingPolygon extends Applet{
                 vertex_y[i][j] = findNumber() * CELL_SIZE;
             }
         }
+
+        vertexNumber[pieceNumber] = findNumber();
+        frameVertex_x = new int[32];
+        frameVretex_y = new int[32];
+
+        for(int i = 0; i < vertexNumber[pieceNumber]; i++){
+            frameVertex_x[i] = findNumber() * CELL_SIZE;
+            frameVretex_y[i] = findNumber() * CELL_SIZE;
+        }
     }
 
     public void paint(Graphics g){
-        Graphics2D grid = (Graphics2D)g, polygon = (Graphics2D)g;
-        super.paint(grid);
+        Graphics2D line = (Graphics2D)g;
+        super.paint(line);
         BasicStroke Thin = new BasicStroke(0.5f);
-        grid.setStroke(Thin);
+        line.setStroke(Thin);
 
         for(int i = 0; i <= 720; i += CELL_SIZE){
-            grid.drawLine(i, 0, i, 720);
-            grid.drawLine(0, i, 720, i);
+            line.drawLine(i, 0, i, 720);
+            line.drawLine(0, i, 720, i);
         }
 
-        super.paint(polygon);
+        super.paint(line);
         BasicStroke Bold = new BasicStroke(2.0f);
-        polygon.setStroke(Bold);
+        line.setStroke(Bold);
+        line.setColor(Color.blue);
 
         for(int i = 0; i < pieceNumber; i++){
-//            changePosition(vertex_x[i], vertex_y[i]);
-            polygon.drawPolygon(vertex_x[i], vertex_y[i], vertexNumber[i]);
+            vertex_x[i] = changePosition(vertex_x[i]);
+            vertex_y[i] = changePosition(vertex_y[i]);
+            line.drawPolygon(vertex_x[i], vertex_y[i], vertexNumber[i]);
         }
+
+        line.setColor(Color.black);
+        frameVertex_x = changePosition(frameVertex_x);
+        frameVretex_y = changePosition(frameVretex_y);
+        line.drawPolygon(frameVertex_x, frameVretex_y, vertexNumber[pieceNumber]);
+
     }
 }
